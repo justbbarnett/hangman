@@ -1,99 +1,61 @@
-var wordArr = [
-    "Delores Is", "Simulation Theory", "West World"]
-
-    var random = Math.floor((Math.random()*(wordArr.length-1))); 
+var words = [
+    ["D", "E", "L", "O", "R", "E", "S"],
+      ["S","I","M","U","L","A","T","I","O","N"],
+      ["A", "R", "N", "O", "L", "D"]
+    ]
+    var random = Math.floor((Math.random()*(words.length-1))); 
     
-    // var wholeWord = wordArr[random]; // the word to guess will be chosen from the array above
-    // console.log (wholeWord);
-    // var word = wholeWord.split("");
-    // var wordNoSpace = word
-
-    var word = wordArr[random];
-    console.log (word);
-    var wordNoSpace = word.split("");
-
-    console.log (word + " word")
-    word = word.toUpperCase();
-    
-    
-    // var word = wordArr[random]; // the word to guess will be chosen from the array above
-
-    // console.log (wordLength);
-
-    // var wordLength = new Array(word.length);
-   
-    
+    var word = words[random]; // the word to guess will be chosen from the array above
+    var wordLength = new Array(word.length);
     var error = 0;
     
     // every letter in the word is symbolized by an underscore in the guessfield
-    
-    // for (var i = 0; i < wordLength.length; i++){
-    //     if (wordLength[i] === " "){
-    //         console.log("space found")}}
-    
-    for (var i = 0; i < wordNoSpace.length; i++){
-        if (wordNoSpace[i] === " "){
-            console.log("space found")
-            wordNoSpace[i] = "___";
-        }
-        else {
-            wordNoSpace[i] = "- ";
-    }}
-    
-    console.log(word + " word")
-    console.log(wordNoSpace + " wordNoSpace")
+    for (var i = 0; i < wordLength.length; i++){
+        wordLength[i] = "_ ";
+    }
     
     // prints the guessfield
     function printwordLength(){
-        for (var i = 0; i < wordNoSpace.length; i++){
-        var wordLocation = document.getElementById("guessField");
-        var blanks = document.createTextNode(wordNoSpace[i]);
-        wordLocation.appendChild(blanks);
-        } 
+        for (var i = 0; i < wordLength.length; i++){
+        var guess = document.getElementById("guess");
+        var letters = document.createTextNode(wordLength[i]);
+        guess.appendChild(letters);
+        }
     }
     
-    // function keyHandler(event){
-    //     if( theyJustWon ){
-    //         document.removeEventListener("keyup", keyHandler);
-    //     }
-    // }
-
-    // document.addEventListener("keyup", keyHandler);
-    
-    //checks if the the letter provided by the user matches one or more of the letters in the word
-    var checkGuesses = function(){
+    //checks if the the letter provided by the user matches one or more of the guess in the word
+    var checkCharacters = function(){
         var f = document.input; 
-        var b = f.elements["judgeGuesses"]; //the empty input for guesses
-        var newGuess = b.value; // the letter provided by the user
-        newGuess = newGuess.toUpperCase();
+        var b = f.elements["ratecharacters"]; 
+        var characters = b.value; // the letter provided by the user
+        characters = characters.toUpperCase();
         for (var i = 0; i < word.length; i++){
-            if(word[i] === newGuess){
-                wordNoSpace[i] = newGuess + " ";
+            if(word[i] === characters){
+                wordLength[i] = characters + " ";
                 var wrong = true;
             }
         b.value = "";
         }
-        console.log(newGuess + " newGuess");
         
-        //if guessed letter is not in the word, the letter will be added to wrong list
-        var guesses = document.getElementById("guessField");
-        guesses.innerHTML=""; 
+        //deletes the guessfield and replaces it with the new one
+        var guess = document.getElementById("guess");
+        guess.innerHTML=""; 
         printwordLength();
         
         // if a guessed letter is not in the word, the letter will be put on the "wrong guess"-list and hangman grows
         if(!wrong){
             var wrongLetters = document.getElementById("wrongLetters");
-            var wrongGuess = document.createTextNode(" " + newGuess);
-            wrongLetters.appendChild(wrongGuess); 
+            var letters = document.createTextNode(" " + characters);
+            wrongLetters.appendChild(letters); 
             error++;
             var hangman = document.getElementById("hangman");
-            hangman.src = "images/error" + error + ".png";
+        hangman.src = "images/error" + error + ".png";
         }
         
         //checks if all guess have been found
         var win = true;
-        for (var i = 0; i < wordNoSpace.length; i++){
-            if(wordNoSpace[i] === "- "){
+        for (var i = 0; i < wordLength.length; i++){
+            if(wordLength[i] === "_ "){
                 win = false;
             }
         }
@@ -102,7 +64,7 @@ var wordArr = [
         }
         
         //once you got six wrong guess, you lose
-        if(error === 6){
+        if(error === 7){
             window.alert("The simulated humans are coming to get you now...");
         }
     }

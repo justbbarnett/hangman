@@ -31,13 +31,13 @@
                 <h1>Hangman</h1>
             </div>
             <div class="col-12">
-                <p id="guessField"></p>
+                <p id="guess"></p>
 
                 <form name="input">
-                    <input name="judgeGuesses" type="text" size="2" maxlength="1">
-                    <input name="guessButton" type="button" value="Guess" onClick="checkGuesses()">
+                    <input name="ratecharacters" type="text" size="2" maxlength="1">
+                    <input name="guessButton" type="button" value="Guess" onClick="checkCharacters()">
                     <p id="wrongLetters">Wrong Letters:</p>
-                    <img class="hangman" src="images/error.png" id="hangman"><br />
+                    <img src="images/error.png" id="hangman"><br />
                     <input name="refresh" type="button" value="New Game" onClick="location.reload()">
                     </form>
                 </div>

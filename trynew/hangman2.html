@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Ewert|Rye" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
-    <script src="hangman.js"></script>
+    <script src="westworld.js"></script>
 </head>
 <body>
     
@@ -28,16 +28,15 @@
 
         <div class="row game">
             <div class="col-12">
-                <h1>Hangman</h1>
+                <h3>Press any letter to begin! </h3>
             </div>
             <div class="col-12">
-                <p id="guess"></p>
+                <p id="guessField"></p>
 
                 <form name="input">
-                    <input name="ratecharacters" type="text" size="2" maxlength="1">
-                    <input name="guessButton" type="button" value="Guess" onClick="checkCharacters()">
+                    
                     <p id="wrongLetters">Wrong Letters:</p>
-                    <img src="images/error.png" id="hangman"><br />
+                    <img class="hangman" src="images/error.png" id="hangman"><br />
                     <input name="refresh" type="button" value="New Game" onClick="location.reload()">
                     </form>
                 </div>
