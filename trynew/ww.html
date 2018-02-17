@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Ewert|Rye" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+    <script src="westworld.js"></script>
+</head>
+<body>
+    
+    <div class="container clearfix">
+        <div class="row">
+            <div class=" col-12 topphoto">
+                <div class="wimage">
+                    <img class="wimage" alt="westworld logo" src="images/westworld.jpg" >
+                    <div class="wtext">
+                        <h3>Westworld - Hangman</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row game">
+            <div class="col-12">
+                <h1>Hangman</h1>
+            </div>
+            <div class="col-12">
+                <p id="guessField"></p>
+
+                <form name="input">
+                    <input name="judgeGuesses" type="text" size="2" maxlength="1">
+                    <input name="guessButton" type="button" value="Guess" onClick="checkGuesses()">
+                    <p id="wrongLetters">Wrong Letters:</p>
+                    <img class="hangman" src="images/error.png" id="hangman"><br />
+                    <input name="refresh" type="button" value="New Game" onClick="location.reload()">
+                    </form>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+    var wordArr = [
+        "Delores",
+        "Arnold",
+        "Simulation Theory",
+        "West World",
+        "Hosts"]
+
+        //defining random for random word choice
+    var random = Math.floor((Math.random()*(wordArr.length - 1)));
+    var error = 0; //defining starting point in errors or lives
+
+    document.addEventListener = function checkGuesses (start) {
+        var gamerGuess = event.key
+        var word = wordArr[random];
+            console.log (word); //checking for word choice
+        word = word.toUpperCase(); //array of characters capitalized for simple search
+        var wordNoSpace = word.split(""); //splitting word into array of characters
+    
+        //defining for loop to separate letters from spaces, so spaces will not count as errors
+        for (var i = 0; i<wordNoSpace.length; i++) {
+            if (wordNoSpace[i] === " "){
+                console.log("space found") //log to confirm for loop is working for spaces
+                wordNoSpace[i] = "___"; //if there is a space is replaced with an underscore
+            }
+            else { //this is for any index that is not a space
+                wordNoSpace[i] = "- "; //any other character will be viewed as a hyphen
+            }
+        }
+    
+
+        console.log(word + " word capitalized")
+        console.log(wordNoSpace + " wordNoSpace array, should be your symbols")
+    }
+
+        </script>
+    </body>
+</html>

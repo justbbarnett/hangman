@@ -1,0 +1,31 @@
+body {
+    background-image: url(images/darkstar.jpg);
+    color: aliceblue;
+    font-family: "rye";
+}
+h1 {
+    -webkit-text-stroke: 1px black;
+ }
+ .wimage {
+    float: left;
+    position: relative;
+    margin: 1%;
+    max-height: 400px;
+}
+.wtext {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    text-align: center;
+}
+.hangman {
+    max-width: 80%;
+}
+img .hangman {
+    max-width: 50%;
+}
+input {
+	border: 2px solid #999;
+	font-family: Helvetica, sans-serif;
+	color: #999;
+}
