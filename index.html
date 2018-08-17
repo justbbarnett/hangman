@@ -5,45 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Ewert|Rye" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
-    <script src="westworld.js"></script>
+    <!-- CDN's -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Ewert|Rye" rel="stylesheet">
+
+    <!-- My code -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/main.css" />
+    <script src="assets/main.js"></script>
 </head>
 <body>
-    
-    <div class="container clearfix">
-        <div class="row">
-            <div class=" col-12 topphoto">
-                <div class="wimage">
-                    <img class="wimage" alt="westworld logo" src="images/westworld.jpg" >
-                    <div class="wtext">
-                        <h3>Westworld - Hangman</h3>
+    <div class="wrap">
+            <div class="row">
+                    <div class="col-12 topphoto">
+                        <div class="wimage">
+                            <img class="wimage" alt="westworld logo" src="assets/images/0.png" >
+                            
+                            <div class="wtext">
+                                <h3>Westworld - Hangman</h3>
+                            </div>
+                            <div class="wplay">
+                                <h3>Press any letter to start playing</h3>
+                            </div>
+                            <div class="wrong">
+                                <p class="wrongLetters">Wrong Letters: </p>
+                                <hr/>
+                                <p class="guessField"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row game">
-            <div class="col-12">
-                <h3>Press any letter to begin! </h3>
-            </div>
-            <div class="col-12">
-                <p id="guessField"></p>
-
-                <form name="input">
-                    
-                    <p id="wrongLetters">Wrong Letters:</p>
-                    <img class="hangman" src="images/error.png" id="hangman"><br />
-                    <input name="refresh" type="button" value="New Game" onClick="location.reload()">
-                    </form>
-                </div>
-            </div>
-        
-        </div>
     </div>
 
+    
 </body>
 </html>
