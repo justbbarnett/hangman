@@ -63,14 +63,15 @@ let checkGuess = (char) => {
         }
     }
     
-    let win = false;
 
     //check wordArr for the win
     for (let i = 0; i<wordArr.length; i++) {
         if (wordArr[i] === "- ") {
-            win = false;
+            let win = false;
+            return win;
         } else {
-            win = true;
+            let win = true;
+            return win;
         }
     }
 
